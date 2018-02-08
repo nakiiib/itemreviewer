@@ -14,7 +14,7 @@
 
 <div class="col-sm-3">
 
-	<img src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}" alt="" class="img-responsive img-rounded">
+	<img src="{{$user->photo ? $user->photo->file : 'http://placehold.it/400x400'}}" alt="" class="img-responsive img-rounded">
 
 </div>
 
@@ -22,12 +22,18 @@
 
 {!! Form::model($user, ['method'=>'PATCH', 'action'=> ['AdminUsersController@update', $user->id], 'files'=>true]) !!}
 
-<div>
+
 
 	<div class="form-group">
 		{!! Form::label('name', 'Name:') !!}
 		{!! Form::text('name', null, ['class'=>'form-control']) !!}
 	</div>
+
+
+		<div class="form-group">
+			{!! Form::label('location', 'Address:') !!}
+			{!! Form::text('location', null, ['class'=>'form-control']) !!}
+		</div>
 
 
 	<div class="form=group">
@@ -58,7 +64,7 @@
 	</div>
 
 		<div class="form-group">
-			{!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+			{!! Form::submit('Update User', ['class'=>'btn btn-primary']) !!}
 		</div>
 
 
@@ -66,7 +72,19 @@
 	{!! Form::close() !!}
 
 
-	</div>
+
+
+
+
+	{!! Form::open(['method'=>'DELETE', 'action'=> ['AdminUsersController@destroy', $user->id]]) !!}
+
+	<div class="form-group">
+			{!! Form::submit('Delete user', ['class'=>'btn btn-danger']) !!}
+		</div>
+
+
+
+</div>
 
 	<div class="row">
 

@@ -11,6 +11,7 @@
 
 <h1>Create Users</h1>
 
+
 {!! Form::Open(['method'=>'POST', 'action'=> 'AdminUsersController@store', 'files'=>true]) !!}
 
 <div>
@@ -20,10 +21,9 @@
 		{!! Form::text('name', null, ['class'=>'form-control']) !!}
 	</div>
 
-
 	<div class="form=group">
-		{!! Form::label('email', 'Email:') !!}
-		{!! Form::email('email', null, ['class'=>'form-control']) !!}
+		{!! Form::label('gender', 'Gender:') !!}
+		{!! Form::select('gender', array('' => 'Choose Options', 1 => 'Male', 2 => 'Female'), ['class'=>'form-control']) !!}
 	</div>
 
 	<div class="form=group">
@@ -41,6 +41,16 @@
 		{!! Form::label('role_id', 'Role:') !!}
 		{!! Form::select('role_id', [''=>'Choose Options'] + $roles , null, ['class'=>'form-control']) !!}
 
+	</div>
+
+	<div class="form-group">
+		{!! Form::label('location', 'Address:') !!}
+		{!! Form::text('location', null, ['class'=>'form-control']) !!}
+	</div>
+
+	<div class="form=group">
+		{!! Form::label('email', 'Email:') !!}
+		{!! Form::email('email', null, ['class'=>'form-control']) !!}
 	</div>
 
 	<div class="form=group">

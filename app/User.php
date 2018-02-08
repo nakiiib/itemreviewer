@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','is_active','role_id','photo_id',
+        'name', 'email', 'password','is_active','role_id','photo_id','posts_number','activity_point','location','gender',
     ];
 
     /**
@@ -40,5 +40,29 @@ class User extends Authenticatable
 
 
     }
+
+
+
+    public function isAdmin(){
+
+
+        if($this->role->name == "administrator" && $this->is_active == 1){
+
+
+            return true;
+
+        }
+
+        return false;
+
+    }
+
+    public function post(){
+
+        return $this->hasMany('App\Post');
+
+    }
+
+
 
 }
