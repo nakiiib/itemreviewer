@@ -4,7 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class SubCategory extends Model
+class Review_Type extends Model
 {
     //
+
+    protected $fillable = ['name'];
+
 }

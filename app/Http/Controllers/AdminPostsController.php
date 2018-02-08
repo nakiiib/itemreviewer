@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
+use App\Review_Type;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -36,7 +37,9 @@ class AdminPostsController extends Controller
     {
         //
 
-       return view('admin.posts.create');
+        $categories = Review_Type::lists('name','id')->all();
+
+       return view('admin.posts.create', compact('categories'));
 
     }
 
